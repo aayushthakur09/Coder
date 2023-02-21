@@ -1,0 +1,33 @@
+#include <stdio.h>
+int main()
+{
+ int num, seat;
+    int seats[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; //all the seats in the train are initialized to 0
+
+    printf("Please enter the number of seats you want to book: \n");
+    scanf("%d", &num);
+    
+    if (num > 10)
+    {
+        printf("Sorry, there are only 10 seats available.\n");
+    }
+    else
+    {
+        printf("Please enter the seat numbers you want to book (1-10): \n");
+        for (int i = 0; i < num; i++)
+        {
+            scanf("%d", &seat);
+            if (seats[seat - 1] == 0) //check if the seat is already booked
+            {
+                seats[seat - 1] = 1; //book the seat
+                printf("Seat %d booked!\n", seat);
+            }
+            else
+            {
+                printf("Seat %d is already booked!\n", seat);
+            }
+        }
+    }
+
+    return 0;
+}
